@@ -200,39 +200,40 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					<!--//pop-up-box -->
 					<div id="small-dialog" class="mfp-hide">
 						<div class="appoint reg">
-							<form action="#" method="post">
+							<div id="eOrderFormSent" style="display:none">Спасибо, ваше сообщение отправлено! Мы вам перезвоним в ближайшее время.</div>
+							<form id="eOrder" action="#">
 								<ul>
 									 <li class="text-info">Выбрать дату: </li>
-									 <li><input class="date" id="datepicker" type="text" value="19/10/2016" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '19/10/2016';}" required=""></li>
+									 <li><input class="date" id="datepicker" name="Date" type="text" value="19/06/2019" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = new Date();}" required=""></li>
 								</ul>
 								<ul>
 									<li class="text-info">Процедура: </li>
 									<li>
 										<div class="section_room">
-										  <select id="country" onchange="change_country(this.value)" class="frm-field required sect">
-												<option value="null">Консультация</option>
-												<option value="null">Заказать крем</option>
-												<option value="null">Чистка лица</option> 
-												<option value="null">Ламинирование ресниц</option>					
-												<option value="null">Татуаж</option>
-												<option value="null">Другое</option>											
+										  <select id="country" name="Procedure" class="frm-field required sect">
+												<option value="Консультация">Консультация</option>
+												<option value="Заказать крем">Заказать крем</option>
+												<option value="Чистка лица">Чистка лица</option> 
+												<option value="Ламинирование ресниц">Ламинирование ресниц</option>					
+												<option value="Татуаж">Татуаж</option>
+												<option value="Другое">Другое</option>											
 										  </select>
 										</div>
 									</li>
 								</ul>
 								<ul>
 									<li class="text-info">Ваше имя: </li>
-									<li><input type="text" name="John Smith"  placeholder="John Smith" required=""></li>	
+									<li><input type="text" name="Name"  placeholder="John Smith" required=""></li>	
 								</ul>
 								<ul>
 									 <li class="text-info">E-mail: </li>
-									 <li><input type="email" name="info@example.com"  placeholder="info@example.com" required=""></li>
+									 <li><input type="email" name="Email"  placeholder="info@example.com" required=""></li>
 								</ul>
 								<ul>
 									 <li class="text-info">Телефон:</li>
-									 <li><input type="text" name="1234567890"  placeholder="1234567890" required=""></li>
-								</ul>						
-								<input type="submit" value="ЗАПИШИТЕ МЕНЯ"> 
+									 <li><input type="text" name="Phone" placeholder="1234567890" required=""></li>
+								</ul>
+								<input type="button" value="ЗАПИШИТЕ МЕНЯ" onclick="Order(eOrder); eOrder.style.display = 'none'; eOrderFormSent.style.display='block'">
 							</form>
 						</div>
 					</div>
@@ -639,7 +640,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <div id="team" class="team-content all_pad agileits wow fadeInUp animated" data-wow-delay=".5s">
 	<div class="container">
 		<h3 class="title">"Живой" крем <span></span></h3>	
-		<p class="para">В чем преимущество натуральной индивидуальной косметики перед промышленными, даже люксовыми средствами по уходу за кожей? Во-первых, такая косметика учитывает все Ваши индивидуальные нюансы, а не только условное разденение на сухую, жирную и комбинированную кожу. Во-вторых, цена на натуральный крем из высококачественных профессиональных компонентов совсем невелика по сравнению с дорогими люксовыми марками, а качеством намного превосходит ее. И самое главное преимущество - состав такого крема. Только натуральные гидролаты и целебные масла. Активные компоненты: гиалуроновая кислота, унитамурон, декспантенол, Матриксил или Трилаген (антивозрастные компоненты), ниацинамид, сепиконтроль, а также экстракты, антиоксиданты, СО2-экстракты, кислоты. Никаких сульфатов, парабенов, отдушек и другой "химии".<br> Небольшое количество "зеленого" консерванта позволяет натуральному крему храниться до 3 месяцев в холодильнике.<br>С помощью пробников мы подберем для Вас ту эмульсионную форму крема, которая Вам подходит (крем-гель, легкий флюид, плотный маслянистый крем и т.д.), далее я изготовлю свежий крем под потребности именно вашей кожи.  </p>
+		<p class="para">В чем преимущество натуральной индивидуальной косметики перед промышленными, даже люксовыми средствами по уходу за кожей? Во-первых, такая косметика учитывает все Ваши индивидуальные нюансы, а не только условное разделение на сухую, жирную и комбинированную кожу. Во-вторых, цена на натуральный крем из высококачественных профессиональных компонентов совсем невелика по сравнению с дорогими люксовыми марками, а качеством намного превосходит ее. И самое главное преимущество - состав такого крема. Только натуральные гидролаты и целебные масла. Активные компоненты: гиалуроновая кислота, унитамурон, декспантенол, Матриксил или Трилаген (антивозрастные компоненты), ниацинамид, сепиконтроль, а также экстракты, антиоксиданты, СО2-экстракты, кислоты. Никаких сульфатов, парабенов, отдушек и другой "химии".<br> Небольшое количество "зеленого" консерванта позволяет натуральному крему храниться до 3 месяцев в холодильнике.<br>С помощью пробников мы подберем для Вас ту эмульсионную форму крема, которая Вам подходит (крем-гель, легкий флюид, плотный маслянистый крем и т.д.), далее я изготовлю свежий крем под потребности именно вашей кожи.  </p>
 		<div class="team-grids">
 			<div class="col-md-4 team-gd">
 				<div class="team-left">
@@ -890,7 +891,8 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			<p class="para">Записаться или задать интересующие Вас вопросы можно по телефону +7 916 672 73 70. <br>Или по этому же номеру написать в WhatsApp или Viber. </br></p>
 		<div class="col-md-7 contact-left">
 			<h4>Напишите мне</h4>
-			<form action="#" method="post">
+			<div id="eWriteMeFormSent" style="display:none">Спасибо, ваше сообщение отправлено! Мы вам перезвоним в ближайшее время.</div>
+			<form action="#" method="post" id="eWriteMe">
 				<div class="form-left">
 					<input type="text" value="Имя" name="Name" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Name';}">
 				</div>
@@ -900,7 +902,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				<div class="clearfix"></div>
 				<input type="text" value="Тема" name="Subject" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Subject';}">
 				<textarea name="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}" required="">Сообщение</textarea>
-				<input type="submit" value="Отправить">
+				<input type="button" value="Отправить" onclick="WriteMe(eWriteMe); eWriteMe.style.display = 'none'; eWriteMeFormSent.style.display='block'">
 			</form>
 			<div class="footer-grids">
 				<div class="col-sm-4 footer-one">
@@ -969,6 +971,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- for bootstrap working -->
 		<script src="js/bootstrap.js"></script>
 <!-- //for bootstrap working -->
+<script src="sendform.js"></script>
 	
 </body>
 </html>
