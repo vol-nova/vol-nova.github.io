@@ -58,7 +58,7 @@ function Order(eOrder)
     var phone = eOrder.querySelector('input[name="Phone"]').value
     var procedure = eOrder.querySelector('select[name="Procedure"]').value
     var result = {
-        id: "mpgDA",
+        id: "mpgDZ",
         type: "vol-nova.ru: Запишите меня",
         title: name,
         message: phone + "\n" + email + "\n" + russianDateFormat(date) + ": " + procedure
