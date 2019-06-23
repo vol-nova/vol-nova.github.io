@@ -882,14 +882,14 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			<div id="eWriteMeFormSent" style="display:none">Спасибо, ваше сообщение отправлено! Мы вам перезвоним в ближайшее время.</div>
 			<form id="eWriteMe" onsubmit="WriteMe(eWriteMe); eWriteMe.style.display = 'none'; eWriteMeFormSent.style.display='block'; return false;">
 				<div class="form-left">
-					<input type="text" name="Name" required="">
+					<input type="text" name="Name" placeholder="Имя" required="">
 				</div>
 				<div class="form-right">
-					<input type="email address" name="Email" required="">
+					<input type="email address" name="Email" placeholder="E-mail" required="">
 				</div>
 				<div class="clearfix"></div>
-				<input type="text" name="Subject">
-				<textarea name="Message" required=""></textarea>
+				<input type="text" name="Subject" placeholder="Тема">
+				<textarea name="Message" placeholder="Сообщение" required=""></textarea>
 				<input type="submit" value="Отправить">
 			</form>
 			<div class="footer-grids">
