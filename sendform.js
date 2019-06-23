@@ -44,26 +44,42 @@ function HttpPost(url, bodyOrParams, onResult, onHeader, onError) {
     Http('POST', url, bodyOrParams, onResult, onHeader, onError)
 }
 
-var russianDateFormat = new Intl.DateTimeFormat('ru-RU', {
-    year: '2-digit', month: '2-digit', day: '2-digit' }).format;
+String.prototype.ReplaceAll = function(search, replacement) {
+    var target = this;
+    return target.split(search).join(replacement);
+};
+
+function ValidatePhoneNumber(phone)
+{
+    phone = phone.split('+').join('').split('-').join('').split(' ').join('').split('(').join('').split(')').join('');
+    return phone.length == 11 && !isNaN(phone);
+}
 
 /**
  * @param {HTMLElement} eOrder
  */
 function Order(eOrder)
 {
-    var name = eOrder.querySelector('input[name="Name"]').value
-    var email = eOrder.querySelector('input[name="Email"]').value
-    var date = new Date(eOrder.querySelector('input[name="Date"]').value)
-    var phone = eOrder.querySelector('input[name="Phone"]').value
-    var procedure = eOrder.querySelector('select[name="Procedure"]').value
+    var name = eOrder.querySelector('input[name="Name"]').value;
+    var email = eOrder.querySelector('input[name="Email"]').value;
+    var phoneField = eOrder.querySelector('input[name="Phone"]');
+    var phone = phoneField.value;
+    var procedure = eOrder.querySelector('select[name="Procedure"]').value;
+    if(!ValidatePhoneNumber(phone))
+    {
+        alert("Неверный формат номера телефона! Введите номер в формате +7 987 654 32 10");
+        phoneField.value = "";
+        phoneField.focus();
+        return false;
+    }
     var result = {
         id: "mpgDA",
         type: "vol-nova.ru: Запишите меня",
         title: name,
-        message: phone + "\n" + email + "\n" + russianDateFormat(date) + ": " + procedure
-    }
-    HttpPost("https://wirepusher.com/send", result, null, null, function() {})
+        message: phone + "\n" + email + "\n" + procedure
+    };
+    HttpPost("https://wirepusher.com/send", result, null, null, function() {});
+    return true;
 }
 
 /**

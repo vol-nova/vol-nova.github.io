@@ -896,7 +896,7 @@ p.para {
 	height:172px;	
 	margin-bottom:25px;
 }
-.contact-left input[type="button"]{
+.contact-left input[type="submit"]{
     width: 100%;
     color: #fff;
     padding: 11px 0px;
@@ -911,7 +911,7 @@ p.para {
 	-o-transition:0.5s all;
 	-ms-transition:0.5s all;	
 }
-.contact-left input[type="button"]:hover{
+.contact-left input[type="submit"]:hover{
 	background: #08538c;
 	transition:0.5s all;
 	-webkit-transition:0.5s all;
@@ -1632,7 +1632,7 @@ select option{
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
-.reg input[type=button]{
+.reg input[type=submit]{
     background: #fd9f3e;
     font-size: 18px;
     color: #fff;
@@ -1647,7 +1647,7 @@ select option{
     -o-transition: 0.5s all;
     -ms-transition: 0.5s all;
 }	
-.reg input[type=button]:hover{
+.reg input[type=submit]:hover{
 	background:#000;
 	transition: 0.5s all;
     -webkit-transition: 0.5s all;
@@ -2316,7 +2316,7 @@ select option{
 	.contact-left textarea {
 		height: 110px;
 	}
-	.contact-left input[type="button"] {
+	.contact-left input[type="submit"] {
 		font-size: 16px;
 	}
 	.footer-one {
@@ -2451,7 +2451,7 @@ select option{
 	.ui-datepicker th span {
 		font-size: 1.1em;
 	}
-	.reg input[type=button] {
+	.reg input[type=submit] {
 		font-size: 15px;
 		width: 100%;
 		padding: 9px 0;
