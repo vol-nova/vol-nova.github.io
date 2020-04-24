@@ -92,7 +92,7 @@ function WriteMe(eWriteMe)
     var subject = eWriteMe.querySelector('input[name="Subject"]').value
     var message = eWriteMe.querySelector('textarea[name="Message"]').value
     var result = {
-        id: "mpgDZ",
+        id: "6Kx9mpg3d",
         type: "vol-nova.ru: Напишите мне",
         title: subject + " " + name + " " + email,
         message: message
